@@ -1,131 +1,152 @@
 \documentclass[11pt]{article}
 
-% Import custom formating
+% Import custom formating from "format.tex"
 \input{../format.tex}
 
 % Import packages
-\usepackage{amsmath,amssymb}
-\usepackage{enumformat}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
 
 
-% -- Comandos extra
-
-
-% -- Datos
-\title{Álgebra Lineal y la Ciencia de Datos}
-\author{Andrés Merino}
-%\affil{Carrera de Ciencia de Datos}
+% Document information 
+\title{A heartbreaking work of staggering mediocrity}
+\author [1,2]{Jon Kracht}
+\author[1]{Stephen Emery}
+\author[3]{Jonathan Buchanan}
+\affil[1]{Stephen L. Emery, LLC.}
+\affil[2]{Boston University}
+\affil[3]{Opus Two}
 \date{\today}
+\setcounter{Maxaffil}{0}
 
-% --- Archivo de bibliografía
+% Load bibliography document
 \addbibresource{01-references.bib}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{document}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \maketitle
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Introducción}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
 
 Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut purus elit, vestibulum ut, placerat ac, adipiscing vitae, felis. Curabitur dictum gravida mauris. Namarcu libero, nonummy eget, consectetuer id, vulputate a, magna. Donec vehicula augue eu neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Mauris ut leo. Cras viverra metus rhoncus sem. Nulla et lectus vestibulum urna fringilla ultrices. Phasellus eu tellus sit amet tortor gravida placerat. Integer sapien est, iaculis in, pretium quis, viverra ac, nunc. Praesent eget sem vel leo ultrices bibendum. Aenean faucibus. Morbi dolor nulla, malesuada eu, pulvinar at, mollis ac, nulla. Curabitur auctor semper nulla. Donec varius orci eget risus. Duis nibh mi, congue eu, accumsan eleifend, sagittis quis, diam. Duis eget orci sit amet orci dignissim rutrum.
 
-Nam dui ligula, fringilla a, euismod sodales, sollicitudin vel, wisi. Morbi auctor lorem non justo. Nam lacus libero, pretium at, lobortis vitae, ultricies et, tellus. Donec aliquet, tortor sed accumsan bibendum, erat ligula aliquet magna, vitae ornare odio metus a mi. Morbi ac orci et nisl hendrerit mollis. Suspendisse ut massa. Cras nec ante. Pellentesque a nulla. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam tincidunt urna. Nulla ullamcorper vestibulum turpis. Pellentesque cursus luctus mauris
+
+Here is another paragraph of text.  I am curious as to whether this will be indented or not.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Figuras y Tablas}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Las tablas e imágenes que aparezcan en el documento, siempre deben ser referenciadas, se deben hacer referencia a ellas con enlaces, por ejemplo: en la Figura \ref{fig:01} y en la Tabla \ref{tab:01} se pueden apreciar los resultados.
+\section{Figures and Tables}
+
+The tables and images that appear in the document must always be referenced. They should be referenced using links, for example: "As seen in Figure \ref{fig:01} and Table \ref{tab:01}, the results are presented..."
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.4\textwidth]{01-figures/fig01.jpg}
-    \caption{Leyenda de la figura.}
+    \caption{Picture of some guy}
     \label{fig:01}
 \end{figure}
 
-Para la composición de tablas, la letra siempre debe ser de tamaño menor a la del resto del texto y se recomienda optar por el siguiente formato:
+For the composition of tables, the font size should always be smaller than that of the rest of the text, and it is recommended to opt for the following format:
 
 \begin{table}[H]
     \centering\small
     \begin{tabular}{@{}ccc@{}}
     \toprule
-        \textbf{Fórmula} & \textbf{Prueba 1} & \textbf{Prueba 2} \\ 
+        \textbf{Formula} & \textbf{Test 1} & \textbf{Test 2} \\ 
     \midrule
-        Compuesto 1 & $38.4$  &  $6.32$\\ 
-        Compuesto 2 & $16.6$ & $12.5$ \\ 
+        Compound 1 & $38.4$  &  $6.32$\\ 
+        Compound 2 & $16.6$ & $12.5$ \\ 
     \bottomrule
     \end{tabular}
-    \caption{Resultados de la experimentación de distintas substancias.}
+    \caption{Results from different substances.}
     \label{tab:01}
 \end{table}
 
-Las tablas, al igual que las figuras, siempre deben poseer una leyenda. Este hace uso del paquete \texttt{booktabs} que mejora la presentación de las mismas. También se pueden ingresar código como el que se muestra en el Código \ref{lst:01}.
+Tables, like figures, must always have a caption. This approach uses the \texttt{booktabs} package, which improves their presentation. You can also include code, such as the one shown in Code \ref{lst:01}.
 
-\begin{lstlisting}[language=Python,caption={Ejemplo de código.},label={lst:01},captionpos=b]
-# Ordenamiento por burbuja
-def OrdenBurbuja(a):
+
+
+% `lstlisting` comes from listing package and is used to include source code.
+% Caption description called `listingname` (currently set to 'Code block') is configurable in format.text where listing package is imported
+
+\begin{lstlisting}[language=Python,caption={Example of code},label={lst:01},captionpos=b]
+# Bubble sort 
+def BubbleSort(a):
     for i in range(len(a)-2):
         for j in range(len(a)-i-1):
             if a[j] > a[j+1]:
                 a[j],a[j+1] = a[j+1],a[j]
-    print("Se ha ordenado la lista.")
+    print("The list has been sorted.")
     return a
 \end{lstlisting}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Conclusiones}
+\section{Conclusions}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{itemize}[leftmargin=*]
 \item 
-    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut purus elit, vestibulum ut, placerat ac, adipiscing vitae, felis. Curabitur dictum gravida mauris. Namarcu libero, nonummy eget, consectetuer id, vulputate a, magna. Donec vehicula augue eu neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Mauris ut leo. Cras viverra metus rhoncus sem. Nulla et lectus vestibulum urna fringilla ultrices. Phasellus eu tellus sit amet tortor gravida placerat. Integer sapien est, iaculis in, pretium quis, viverra ac, nunc. Praesent eget sem vel leo ultrices bibendum. Aenean faucibus. Morbi dolor nulla, malesuada eu, pulvinar at, mollis ac, nulla. Curabitur auctor semper nulla. Donec varius orci eget risus. Duis nibh mi, congue eu, accumsan eleifend, sagittis quis, diam. Duis eget orci sit amet orci dignissim rutrum.
+    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut purus elit, vestibulum ut, placerat ac, adipiscing vitae, felis. Curabitur dictum gravida mauris. Namarcu libero, nonummy eget, consectetuer id, vulputate a, magna. 
+    Donec vehicula augue eu neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Mauris ut leo. Cras viverra metus rhoncus sem. Nulla et lectus vestibulum urna fringilla ultrices. Phasellus eu tellus sit amet tortor gravida placerat. Integer sapien est, iaculis in, pretium quis, viverra ac, nunc. Praesent eget sem vel leo ultrices bibendum. Aenean faucibus. Morbi dolor nulla, malesuada eu, pulvinar at, mollis ac, nulla. Curabitur auctor semper nulla. Donec varius orci eget risus. Duis nibh mi, congue eu, accumsan eleifend, sagittis quis, diam. Duis eget orci sit amet orci dignissim rutrum.
 
 \item
     Nam dui ligula, fringilla a, euismod sodales, sollicitudin vel, wisi. Morbi auctor lorem non justo. Nam lacus libero, pretium at, lobortis vitae, ultricies et, tellus. Donec aliquet, tortor sed accumsan bibendum, erat ligula aliquet magna, vitae ornare odio metus a mi. Morbi ac orci et nisl hendrerit mollis. Suspendisse ut massa. Cras nec ante. Pellentesque a nulla. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam tincidunt urna. Nulla ullamcorper vestibulum turpis. Pellentesque cursus luctus mauris
 \end{itemize}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Bibliografía y citas}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-La bibliografía debe incluirse mediante un archivo \texttt{.bib}. El estilo bibliográfico a usar es APA séptima edición. Para las citas puede utilizar los siguientes comandos según sea adecuado:
+\section{Bibliography \& citations}
+
+The bibliography must be included using a \(\texttt{.bib}\) file. The bibliography style to use is APA 7th edition. For citations, you can use the following commands as appropriate:
+
 \begin{itemize}
 \item 
-    Cita completa entre paréntesis \verb"\parencite{ }": \parencite{stewartpre}
+    Full citation in parentheses \verb"\parencite{ }": \parencite{stewartpre}
 \item
-    Cita completa año entre paréntesis \verb"\textcite{ }": \textcite{stewartpre}
+    Full citation with year in parentheses \verb"\textcite{ }": \textcite{stewartpre}
 \item 
-    Cita completa sin paréntesis \verb"\cite{ }": \cite{stewartpre}
+    Full citation without parenthese \verb"\cite{ }": \cite{stewartpre}
 \item
-    Cita de autor \verb"\citeauthor{ }": \citeauthor{stewartpre}
+    Cite author \verb"\citeauthor{ }": \citeauthor{stewartpre}
 \item
-    Cita de año \verb"\citeyear{ }": \citeyear{stewartpre}
+    Cite year \verb"\citeyear{ }": \citeyear{stewartpre}
 \item 
-    Cita con opciones extras \verb"\parencite[ ][ ]{ }": \parencite[ver][p. 66]{stewartpre}
+    Cite with extra options \verb"\parencite[ ][ ]{ }": \parencite[ver][p. 66]{stewartpre}
 \end{itemize}
 
+Note:  Citation handle (in this case \verb"stewartpre") is defined in \verb".bib" file.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Ejemplos}
 
-Nam dui ligula, fringilla a, euismod sodales, sollicitudin vel, wisi. Morbi auctor lorem non justo. Nam lacus libero, pretium at, lobortis vitae, ultricies et, tellus. Donec aliquet, tortor sed accumsan bibendum, erat ligula aliquet magna.
+\subsection{Citation examples}
 
+
+Apparently, only the first paragraph in a subsection in un-indented; all the rest are.
 Según \textcite{stewartpre}, ``la forma más importante de visualizar una función es por medio de su gráfica'' (p. 152). Además, sabemos que ``la gráfica de una función $f$ da un retrato del comportamiento'' \parencite[p. 153]{stewartpre}. Por otro lado, una función se dice lineal porque su gráfica representa una recta \parencite{stewartpre}. Finalmente, según \textcite{stewartpre}:
 \begin{quote}
     Por lo general consideramos funciones para las cuales los conjuntos $A$ y $B$ son conjuntos de números reales. El símbolo $f(x)$ se lee “$f$ de $x$” o “$f$ en $x$” y se denomina valor de $f$ en $x$, o la imagen de $x$ bajo $f$. El conjunto $A$ recibe el nombre de dominio de la función. El rango de $f$ es el conjunto de todos los valores posibles de $f(x)$ cuando $x$ varía en todo el dominio. (p. 125)
 \end{quote}
 
-De otra manera:
+This paragraph will be indented because it is not the first paragh of a subsection.
 \begin{quote}
     Por lo general consideramos funciones para las cuales los conjuntos $A$ y $B$ son conjuntos de números reales. El símbolo $f(x)$ se lee “$f$ de $x$” o “$f$ en $x$” y se denomina valor de $f$ en $x$, o la imagen de $x$ bajo $f$. El conjunto $A$ recibe el nombre de dominio de la función. El rango de $f$ es el conjunto de todos los valores posibles de $f(x)$ cuando $x$ varía en todo el dominio. \parencite[p. 125]{stewartpre}
 \end{quote}
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\nocite{*}
+
+% Include to cite every entry in .bib file even if not referenced
+%\nocite{*}
+
+% Prevent overfull \hbox error when printing bibiography
+\emergencystretch=1em
 \printbibliography
 
 \end{document}
