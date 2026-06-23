@@ -10,25 +10,24 @@
 %% LaTeX class for typesetting books
 %% 
 %% Copyright (C) 2020 by Andres Merino <mat.andresmerino@gmail.com>
-%% 
-%% Para un mejor uso y entendimiento de la actual clase,
-%% consultar la documentación.
-%% 
+
 \NeedsTeXFormat{LaTeX2e}[2009/09/24]
-\ProvidesPackage{aleph-comandos}[2020/08/14 v1.1]
+\ProvidesPackage{../math-formatting}[2020/08/14 v1.1]
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% --- Paquetes
+%% --- Packages
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%  Son necesarios los siguientes paquetes para utilizar los comandos.
+
 \RequirePackage{ifthen}
 \RequirePackage{calc}
 % \RequirePackage{etex}
 \RequirePackage{amsmath,amssymb}
 \RequirePackage{xcolor}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% --- Comandos de función
+%% --- Function commands 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%  Función completa
+
 \newcommand{\funcion}[5]{%
     {\setlength{\arraycolsep}{2pt}
     \begin{array}{r@{\,}ccl}
@@ -37,72 +36,99 @@
     \end{array}
     }
 }
+
 %%  Función dom-img
 \newcommand{\func}[3]{ #1\colon #2 \rightarrow  #3}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% --- Conjuntos
+%% --- Sets
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%  Números naturales
+
+%%  Natural numbers 
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Nbb}{\mathbb{N}}
-%%  Números enteros
+
+%%  Integers
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\Zbb}{\mathbb{Z}}
-%%  Números racionales
+
+%%  Rational numbers
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\Qbb}{\mathbb{Q}}
-%%  Números reales
+
+%%  Real numbers 
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\Rbb}{\mathbb{R}}
 \newcommand{\reales}{\mathbb{R}}
-%%  Números complejos
+
+%%  Complex numbers 
 \@ifundefined{C}
     {\newcommand{\C}{\mathbb{C}}}
     {\renewcommand{\C}{\mathbb{C}}}
 \newcommand{\Cbb}{\mathbb{C}}
-%%  Campos
+
+%%  Fields
 \newcommand{\K}{\mathbb{K}}
 \newcommand{\Kbb}{\mathbb{K}}
-%%  Primos
+
+%%  Primes
 \newcommand{\Pbb}{\mathbb{P}}
-%%  Polinomios
+
+%%  Polynomials
 \newcommand{\Pol}{\mathcal{P}}
+
 %%  Matrices
 \newcommand{\M}{\mathcal{M}}
+
 %%  Matrices 2
 \newcommand{\Mat}[3][\R]{#1^{#2\times #3}}
-%%  Números irracionales
+
+%%  Irrational numbers 
 \newcommand{\Ibb}{\mathbb{I}}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% --- Operadores
+%% --- Operators
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%  Dominio
+
+%%  Domain
 \DeclareMathOperator{\dom}{dom}
 \DeclareMathOperator{\Dom}{Dom}
-%%  Recorrido
+
+%%  Route?
 \DeclareMathOperator{\rec}{rec}
 \DeclareMathOperator{\Rec}{Rec}
-%%  Imagen
+
+%%  Image
 \DeclareMathOperator{\img}{img}
 \DeclareMathOperator{\Img}{Img}
-%%  Rango de una matriz
+
+%%  Rank of a matrix
 \DeclareMathOperator{\rg}{rg}
 \DeclareMathOperator{\rang}{rang}
-%%  Matriz adjunta
+
+%%  Adjoint matrix
 \DeclareMathOperator{\adj}{adj}
-%%  Matriz de cofactores
+
+%%  Cofactor matrix
 \DeclareMathOperator{\cof}{cof}
-%%  Espacio generado
+
+%%  Generated space
 \DeclareMathOperator{\gen}{gen}
-%%  Proyección
+
+%%  Projection
 \DeclareMathOperator{\proy}{proy}
-%%  Componente normal
+
+%%  Normal component
 \DeclareMathOperator{\norm}{norm}
-%%  Interior de un conjunto
+
+%%  Interior of a set
 \DeclareMathOperator{\inte}{int}
-%%  Trigonométricas
-\renewcommand{\sin}{\sen}
-%%  Trigonométricas inversa
+
+%%  Trigonometric functions
+\renewcommand{\sin}{\sen} 
+
+%%  Inverse trigonometric functions 
 \let\arctan\relax
 \DeclareMathOperator{\arctan}{arc\,tan}
 \DeclareMathOperator{\arccsc}{arc\,csc}
@@ -113,6 +139,7 @@
 \DeclareMathOperator{\arccos}{arc\,cos}
 \let\arcsin\relax
 \DeclareMathOperator{\arcsin}{arc\,sen}
+
 %%  Espacio generado
 \DeclareMathOperator{\spn}{span}
 %%  Parte real y parte imaginaria
