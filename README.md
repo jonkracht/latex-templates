@@ -27,49 +27,46 @@
 
 
 
-## Sobre el Proyecto
+## About the Project
 
-En este proyecto se proporciona un formato de LaTeX para la elaboración de tareas de estudiantes de la Pontificia Universidad Católica del Ecuador. Este formato usa la línea gráfica de la universidad y sus lineamientos en lo que respecta a bibliografía. Incluye ambientes para la creación de ejercicios, problemas, soluciones, código entre otros. 
+This project provides a LaTeX template for preparing student assignments at the Pontificia Universidad Católica del Ecuador. The template adheres to the university's visual identity and bibliography guidelines. It includes environments for creating exercises, problems, solutions, and code, among other elements.
 
-
-### Construido con
+### Built with
 
 [![LaTeX][LaTeX]][LaTeX-url]
 
 
-## Descripción
+## Description
 
-Se proporcionan dos ejemplos, el primero es un ejemplo de una tarea tipo ensayo donde se indica como incluir imágenes, tablas y código, además de las formas de citar y la inclusión de bibliografía. El segundo ejemplo es la resolución de un problema de matemáticas, donde se incluyen el enunciado y su solución.
 
-Para el formato del título, se utiliza los paquetes [`titling`](https://ctan.org/pkg/titling) y [`authblk`](https://ctan.org/pkg/authblk). 
+Two examples are provided: the first is an example of an essay-style assignment demonstrating how to include images, tables, and code, as well as how to cite sources and include a bibliography. The second example is the solution to a mathematics problem, including both the problem statement and the solution.
 
-Se usa el tipo de letra Montserrat mediante el paquete [`montserrat`](https://ctan.org/pkg/montserrat) (en el caso de compilación LaTeX o pdfLaTeX) y [`fontspec`](https://ctan.org/pkg/fontspec) (en el caso de compilación XeLaTeX).
 
-De fondo de cada página se utiliza el archivo `HojaMembretada.pdf` que contiene la línea gráfica de la universidad.
 
-Para la bibliografía, se utiliza el paquete [`biblatex`](https://ctan.org/pkg/biblatex) con el estilo `apa`, añadiendo configuraciones adecuadas para el español.
+The packages used for the title format are [`titling`](https://ctan.org/pkg/titling) y [`authblk`](https://ctan.org/pkg/authblk). 
 
-Se definen el ambientes `ejer` para escribir los enunciados de los ejercicios. Para definir más ambientes, se puede incluir el siguiente código:
+The Montserrat font is used via the package [`montserrat`](https://ctan.org/pkg/montserrat) (in the case of compilation with LaTeX or pdfLaTex) and [`fontspec`](https://ctan.org/pkg/fontspec) (in the case of compilation with XeLaTeX).
+
+The `watermark.pdf` file, which contains the university's visual identity, is used as the background for each page.
+
+For the bibliography, the [`biblatex`](https://ctan.org/pkg/biblatex) package is used with the `apa` style.
+
+
+The `math-block` environment is defined for writing exercise statements. To define additional environments, the following code can be included:
+
 
 ```latex
-\newtheorem{ejer}{Ejercicio}
+\newtheorem{math-block}{Exercise}
     \tcolorboxenvironment{ejer}{%
         color=colordef,recuadrost,colback=colordef!7,drop fuzzy shadow
     }
 ```
 
-### Pruebas
 
-Este proyecto se ha probado con Tex Live 2023 sin problemas.
+## Credits 
 
-## Últimos cambios
 
-```
-- 2024-04-18
-   - Se agrega el proyecto a GitHub para inicio de control de versiones.
-```
-
-## Créditos
+Forked from:  https://github.com/andres-merino/Formato-Tareas-PUCE
 
 Andrés Merino\
 [Proyecto Alephsub0](https://www.alephsub0.org/about/),\
@@ -77,6 +74,7 @@ Docente Investigador\
 Pontificia Universidad Católica del Ecuador\
 aemerinot@gmail.com\
 [![LinkedIn][linkedin-shield]][linkedin-url-aemt]
+
 
 ## Licencia
 
