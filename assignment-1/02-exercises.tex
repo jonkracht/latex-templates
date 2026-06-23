@@ -1,38 +1,42 @@
 \documentclass[11pt]{article}
-% -- Formato
-\input{formato}
 
-% -- Paquetes adicionales
+% -- Import formatting document
+\input{../format.tex}
+
+% -- Additional packages
 \usepackage{amsmath,amssymb,amsthm}
-\usepackage{aleph-comandos}
+
+\usepackage{../math-formatting}  % must match `ProvidesPackage` call in .sty file
+
 \usepackage{enumitem}
 
-% -- Comandos extra
+% -- Extra commands 
 
 
-% -- Datos
-\title{Deber de la semana 1}
-\author{Nombres y apellidos}
-\affil{Carrera de Ciencia de Datos}
+% -- Document information
+\title{Monkies}
+\author{Alfred Einstein}
+\affil{School of Hard Knocks}
 \date{\today}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{document}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \maketitle
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Ejercicios de matrices}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Matrix exercises}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Matriz inversa
+%% Matrix inversion
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{ejer}
-    Considere la siguiente matriz de $3\times 3$:
+
+\begin{math-block}
+    Consider the following $3\times 3$ matrix:
     \[
         A = \begin{pmatrix}
             1 & 2 & 3 \\
@@ -42,15 +46,16 @@
     \]
     \begin{enumerate}[leftmargin=*,label=\textit{\alph*})]
         \item
-            Calcule el determinante de $A$ (puede utilizar directamente Python). ¿Por qué la matriz tiene inversa? 
+            Calculate the determinant of $A$ (you may use Python directly). Why does the matrix have an inverse?
         \item
-            Utilizando el método de Gauss-Jordan, calcule la matriz inversa de $A$, indicando cada paso (puede utilizar directamente Python para las operaciones por filas).
+            Using the Gauss-Jordan method, calculate the inverse matrix of $A$, showing each step (you may use Python directly for the row operations).
     \end{enumerate}
-\end{ejer}
+\end{math-block}
 
-\begin{proof}\hspace{0pt}
+% Proof environment comes from amsthm package.
+\begin{proof}[Here is a label for the proof.]\hspace{0pt}
     \begin{enumerate}[leftmargin=*,label=\textit{\alph*})]
-    \item El determinante de $A$ está dado por 
+    \item The determinant of $A$ is given by
     \begin{align*}
         det(A) & =\begin{vmatrix}
             1 & 2 & 3 \\
@@ -69,23 +74,31 @@
                 \end{vmatrix}\\
         & = -3 + 2 + 33 = 32
     \end{align*}
-    Por lo tanto, $A$ es invertible pues $\det(A)\neq 0$.
+
+    Therefore, $A$ is invertible since $\det(A) \neq 0$.
+
     \item
-    Puesto que $A$ es invertible, se tiene que 
+    Since $A$ is invertible, it follows that
+
     \[
         (A|I_3)\sim (I_3|A^{-1}).
     \]
-    Por lo tanto, aplicando operaciones por filas
+
+    Therefore, by applying row operations
+
     \begin{align*}
         \begin{pmatrix}
             1 & 2 & 3 & | & 1 & 0 & 0\\[0.75em]
             3 & -2 & 1 & | & 0 & 1 & 0\\[0.75em]
             4 & 1 & 1 & | & 0 & 0 & 1
-        \end{pmatrix}& \sim \begin{pmatrix}
+        \end{pmatrix}& 
+        \sim 
+        \begin{pmatrix}
             1 & 2 & 3 & | & 1 & 0 & 0\\[0.75em]
             0 & -8 & -8 & | & -3 & 1 & 0\\[0.75em]
             4 & 1 & 1 & | & 0 & 0 & 1
-        \end{pmatrix} && F_2 - 3F_1 \rightarrow F_2,  \\[0.25em]
+        \end{pmatrix} && 
+        F_2 - 3F_1 \rightarrow F_2,  \\[0.25em]
             &\sim \begin{pmatrix}
             1 & 2 & 3 & | & 1 & 0 & 0\\[0.75em]
             0 & -8 & -8 & | & -3 & 1 & 0\\[0.75em]
@@ -127,7 +140,7 @@
             0 & 0 & 1 & | & \dfrac{11}{32} & \dfrac{7}{32} & -\dfrac{1}{4}
         \end{pmatrix} && F_1-F_3 \rightarrow F_1.
         \end{align*}
-    Por lo tanto, la matriz inversa de la matriz $A$ está dada por
+    Therefore, the inverse matrix of matrix $A$ is given by
     \[
         A^{-1} = \begin{pmatrix}
              -\dfrac{3}{32} & \dfrac{1}{32} & \dfrac{1}{4}\\[0.75em]
