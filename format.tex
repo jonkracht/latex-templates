@@ -1,32 +1,41 @@
-% -- Formato realizado en febrero de 2024
-% -- Corre sin problema en TeX Live 2023
-% -- Adapta correctamente normas APA con BibLaTeX
+% Basic packages 
 
-% -- Paquetes básicos
-%\usepackage[spanish,es-nolists]{babel}
+% Explicitly define file encoding; no longer strictly necessary since utf8 has recently become LaTex default
 \usepackage[utf8]{inputenc}
-\usepackage[noblocks]{authblk} % Para poner afiliación
+
+% WARNING:  Must load `titling` before `authblock` to avoid conflicts (multiple affiliations, specifically)
+% TODO: Look placing affiliate institutions in footer
+% TODO: Determine how to place affiliations on a single line
+\usepackage{titling}
+
+% Set formatting of author block
+% `renewcommand` redefines already existing function
+\usepackage[noblocks]{authblk}
     \renewcommand\Authsep{; }
     \renewcommand\Authand{; }
     \renewcommand\Authands{; }
     \renewcommand\Affilfont{\small}
-    \setcounter{Maxaffil}{1}
+    \setcounter{Maxaffil}{0}
+
+
 \usepackage{xcolor}
-\usepackage{booktabs}
-\usepackage{float}
-\usepackage{graphicx}
+\usepackage{booktabs}  % improved table formatting (provides toprule, midrule, bottomrule in tabular environment)
+\usepackage{float} % controls placement of floating objects (figures, tables); use [H] to prevent floating
+\usepackage{graphicx} % provides \defincolor command
 \usepackage[colorlinks,allcolors=.]{hyperref}
 \usepackage[a4paper, hmargin=2cm, vmargin=4cm]{geometry}
-\usepackage{iftex}
-\usepackage{silence}
+\usepackage{iftex}  % provides conditionals for which typesetting engine is being used
+\usepackage{silence} % configure behavior of warning/error messages
 
-% -- Formato de título
-\usepackage{titling}
+
+% Title formatting 
 \pretitle{\vspace*{-2cm}\begin{center}\bfseries\LARGE}
 \posttitle{\end{center}}
 
-% -- Tipo de letra
-\ifPDFTeX % LaTeX y pdfLaTeX
+
+% Font:
+% Use montserrat font
+\ifPDFTeX % LaTeX & pdfLaTeX
     \RequirePackage[defaultfam,tabular,lining]{montserrat}
         \renewcommand*\oldstylenums[1]{{\fontfamily{Montserrat-TOsF}\selectfont #1}}
     \RequirePackage[OT1]{eulervm}
@@ -43,18 +52,20 @@
 \WarningFilter{latexfont}{Font shape  `T1/cmtt/regular/n'}
 \WarningFilter{latexfont}{Some font shapes were not available, defaults substituted.}
 
-% -- Bottom
+
+% Use image for watermark
 %\WarningsOff[everypage]
 %\usepackage[pages=all]{background}
 %\backgroundsetup{
 %    scale=1,color=black,opacity=1,angle=0,
 %    hshift=0mm,
 %    vshift=0mm,
-%    contents={\includegraphics[width=210mm]{HojaMembretada.pdf}}
+%    contents={\includegraphics[width=210mm]{watermark-image.pdf}}
 %}
 
-% -- Formato de bibliografía
-\usepackage{csquotes}
+
+% Bibliography formatting
+\usepackage{csquotes}  % 
 \usepackage[backend=biber, style=apa]{biblatex}
 % -- Adaptar apa al español (2023)
     \makeatletter
@@ -69,15 +80,16 @@
     }
     \makeatother
     \setlength{\bibhang}{\parindent}
-% -- Fin de adaptar apa al español (2023)
 
-% -- Formato leyendas
+
+% Legend format 
 \usepackage[font={small},labelfont={bf,small},
     justification=centerlast,tablename=Tabla]{caption}
 \usepackage{listings}
-    \renewcommand{\lstlistingname}{Código}
+    \renewcommand{\lstlistingname}{Code block}
 
-% -- Formato Código
+
+% Code-block format 
 \lstdefinestyle{mystyle}{
     backgroundcolor=\color{gray!20},   
     commentstyle=\color{teal},
@@ -93,7 +105,8 @@
 }
 \lstset{style=mystyle}
 
-% -- Espacio
+
+% Spacing
 \setlength{\parskip}{0.4\baselineskip}
 \renewcommand{\baselinestretch}{1.2}
 
@@ -126,7 +139,10 @@
     }
     }
 \makeatother
-\newtheorem{ejer}{Ejercicio}
-    \tcolorboxenvironment{ejer}{%
+
+% Define `math-block` structure
+% Curly-brace term indicates block label
+\newtheorem{math-block}{Exercise}
+    \tcolorboxenvironment{math-block}{%
         color=colordef,recuadrost,colback=colordef!7,drop fuzzy shadow
     }
